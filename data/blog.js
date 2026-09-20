@@ -35,6 +35,40 @@ function findPostByID(id){
 
 
 //updating a post
-function updatePost(id){
+function updatePost(id,updateData){
     
+    const index = posts.findIndex(post=>post.id===id)     //finding the post that'll be updated
+
+    if (index===-1) return null     //if the index doesn't exist, null will be shown
+
+    const updatedPost={  //the updated post
+
+        ...posts[index],
+        ...updateData,
+        updatedAt:new Date().toISOString()    
+    }
+
+    posts[index]===updatedPost
+
+    return updatedPost
+}
+
+
+//deleting a post
+function deletePost(id){
+
+    const index=findIndex(post=post.id===id)  //finding the post that needs to be deleted
+
+    posts.splice(index,1)   //it'll start deleting from 'index', and will only delete 1 post
+    return true
+
+}
+
+
+module.exports={ //so that other files can access them
+    createPost,
+    findAllPosts,
+    findPostByID,
+    updatePost,
+    deletePost
 }
