@@ -20,6 +20,10 @@ app.use((req,res,next)=>{
 })
 
 
+// Routes
+app.use('/api', blogRoute);
+
+
 //health check endpoint
 app.get('/health',(req,res))=>{
     res.status(200).json({
